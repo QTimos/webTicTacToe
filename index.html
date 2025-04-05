@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tic-Tac-Toe</title>
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <section class="screenSection">
+            <!-- headar section -->
+            <header class="head">
+                <a href="#" class="logoButton">
+                    <img src="assets/iconProject.png" alt="Tic-Tac-Toe" class="logo">
+                </a>
+                <ul class="navigationList">
+                    <li class="home">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="Logs">
+                        <a href="#">Logs</a>
+                    </li>
+                    <li class="about">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </header>
+
+            <!-- ASCII Art section -->
+            <section class="asciiArtSection">
+                <pre>
+                    ::::::::::: ::::::::::: ::::::::              ::::::::::: :::      ::::::::              ::::::::::: ::::::::  :::::::::: 
+                       :+:         :+:    :+:    :+:                 :+:   :+: :+:   :+:    :+:                 :+:    :+:    :+: :+:         
+                      +:+         +:+    +:+                        +:+  +:+   +:+  +:+                        +:+    +:+    +:+ +:+          
+                     +#+         +#+    +#+       +#++:++#++:++    +#+ +#++:++#++: +#+       +#++:++#++:++    +#+    +#+    +:+ +#++:++#      
+                    +#+         +#+    +#+                        +#+ +#+     +#+ +#+                        +#+    +#+    +#+ +#+            
+                   #+#         #+#    #+#    #+#                 #+# #+#     #+# #+#    #+#                 #+#    #+#    #+# #+#             
+                  ###     ########### ########                  ### ###     ###  ########                  ###     ########  ##########       
+                </pre>
+            </section>
+
+            <!-- console command section -->
+            <section class="titleSection">
+                <div class="titleText">
+                    <div class="titlePrefix">
+                        <h1>HI@currentPlayer</h1>
+                        <div class="currentPlayerContainer">
+                            <p id="currentPlayer"></p>
+                        </div>
+                        <h1>:~$</h1>
+                    </div>
+                    <div class="titleRandom">
+                        <h1 id="randomTextBuffer"></h1>
+                        <span class="cursor"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <br> -->
+            <!-- <button id="changePlayerButton">Change Player</button> -->
+            <!-- game section -->
+            <section class="gameSection">
+                <div class="gameContainer">
+                    <div class="gameGrid">
+                        <button id="cell1" class="cell cell1 topCell leftCell"></button>
+                        <button id="cell2" class="cell cell2 topCell"></button>
+                        <button id="cell3" class="cell cell3 topCell rightCell"></button>
+                        <button id="cell4" class="cell cell4 leftCell"></button>
+                        <button id="cell5" class="cell cell5"></button>
+                        <button id="cell6" class="cell cell6 rightCell"></button>
+                        <button id="cell7" class="cell cell7 bottomCell leftCell"></button>
+                        <button id="cell8" class="cell cell8 bottomCell"></button>
+                        <button id="cell9" class="cell cell9 bottomCell rightCell"></button>
+                    </div>
+                </div>
+            </section>
+
+
+        </section>
+    </body>
+    <script src="./script.js"></script>
+</html>

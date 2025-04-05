@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --font-familly: "JetBrains Mono";
+    --background-color: #1e222a;
+    --primary-color: #000;
+    --secondary-color: #0f0f0f;
+    --accent-color: #;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: var(--font-familly);
+}
+
+
+/* the whole screen effects */
+.screenSection {
+    border-radius: 160px;
+    position: relative;
+    height: 100vh;
+    background: rgba(0, 255, 0, 0.05);
+    box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
+    filter: contrast(1.2) brightness(1.1);
+    overflow: hidden;
+}
+
+.screenSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.15) 0%,
+        rgba(0, 255, 0, 0.25) 1%,
+        rgba(0, 255, 0, 0.15) 2%
+    );
+    opacity: 0.2;
+    animation: scanFlicker 0.28s infinite alternate, scanWobble 1s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes scanFlicker {
+    0% { opacity: 0.15; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.1; }
+}
+
+@keyframes scanWobble {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+}
+
+.screenSection::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.02);
+    animation: screenFlicker 0.12s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes screenFlicker {
+    0% { opacity: 0.03; }
+    100% { opacity: 0.05; }
+}
+
+
+
+/* header section */
+.head {
+    display: flex;
+    background-color: var(--secondary-color);
+    padding: 7px 0px 7px 0px;
+    align-items: center;
+    justify-content: space-around;
+    font-family: var(--font-familly);
+}
+
+.logoButton {
+    text-decoration: none;
+}
+
+.logoButton:hover {
+    opacity: 0.7;
+}
+
+.logo {
+    max-width: 40px;
+}
+
+.navigationList {
+    display: flex;
+    gap: 14px;
+    list-style: none;
+}
+
+.navigationList a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navigationList a:hover {
+    opacity: 0.7;
+}
+
+
+
+/* ASCII Art section */
+.asciiArtSection {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    color: #fff;
+}
+
+
+
+/* console command section */
+.titleSection {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+    padding-top: 40px;
+}
+
+.titleText {
+    display: flex;
+    width: 1000px;
+    gap: 40px;
+    letter-spacing: 0.1em;
+    font-size: 15px;
+    font-family: var(--font-familly);
+    justify-content: start;
+    align-items: center;
+}
+
+.titlePrefix {
+    color: #fff;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.currentPlayerContainer {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 50px;
+    padding-bottom: 7px;
+}
+
+.currentPlayerX {
+    color: #0f0;
+}
+
+.currentPlayerO {
+    color: #060;
+}
+
+.titleRandom {
+    display: flex;
+    align-items: center;
+}
+
+.titleRandom h1{
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.cursor {
+    width: 0.6em;
+    height: 1.5em;
+    background-color: #0f0;
+    animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% {
+        background-color: #0f0;
+        box-shadow: none;
+    }
+    50% {
+        background-color: transparent;
+        box-shadow: 0 0 0 1px #0f0;
+    }
+}
+
+
+
+/* game section */
+.gameSection {
+    background-color: var(--background-color);
+    height: 608px;
+}
+
+.gameContainer {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.gameGrid {
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-family: var(--font-familly);
+    color: #0f0;
+    background-color: #000;
+}
+
+.cell {
+    text-align: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 0px;
+    border: 1px solid #fff;
+    background-color: var(--background-color);
+    font-size: 50px;
+}
+
+.cellX p {
+    animation: textBlinkX 5s 0,2s infinite;
+}
+
+.cellO p {
+    animation: textBlinkO 5s 0,2s infinite;
+}
+
+@keyframes textBlinkX {
+    0%, 100% {
+        color: #0f0;
+    }
+    50% {
+        color: transparent;
+    }
+}
+
+@keyframes textBlinkO {
+    0%, 100% {
+        color: #060;
+    }
+    50% {
+        color: transparent;
+    }
+}
+
+
+.topCell {
+    border-top: 0px;
+}
+.rightCell{
+    border-right: 0px;
+}
+.leftCell{
+    border-left: 0px;
+}
+.bottomCell{
+    border-bottom: 0px;
+}
+
+.cell:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
