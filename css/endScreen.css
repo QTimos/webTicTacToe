@@ -5,7 +5,7 @@
     --background-color: #1e222a;
     --primary-color: #000;
     --secondary-color: #0f0f0f;
-    --accent-color: #;
+    --accent-color: #bbb;
 }
 
 * {
@@ -123,7 +123,9 @@ body {
     height: 100%;
     background-color: var(--background-color);
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .endScreenTextBar {
@@ -134,18 +136,197 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .endScreenTextBuffer {
     font-size: 50px;
     font-family: var(--font-familly);
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: var(--accent-color);
+    position: absolute;
+    animation: flashingText 2s infinite alternate, movingWinnerText 3s infinite alternate;
 }
 
-.winner{
+@keyframes flashingText {
+    0% { opacity: 1;} 
+    20% { opacity: 1;}
+    30% { opacity: 0.5;}
+    32% { opacity: 0.2;}
+    35% { opacity: 1;}
+    40% { opacity: 0.5;}
+    100% { opacity: 1;}
+}
+
+@keyframes movingWinnerText {
+    20% { transform: translateY(-7px);}
+    30% { transform: translateY(1px);}
+    32% { transform: translateY(-4px);}
+    35% { transform: translateY(1px);}
+    100% { transform: translateY(14px);}
+
+}
+
+.winner {
     padding: 0 15px 0 15px;
+    animation: flashingWinner 1s infinite alternate;
+}
+
+@keyframes flashingWinner {
+    0% { color: #060; }
+    100% { color: #0f0; }
+}
+
+.endScreenButtons {
+    display: flex;
+    margin-top: 40px;
+    max-height: 300px;
+    width: 700px;
+    justify-content: space-evenly;
+    gap: 100px;
+}
+
+.background {
+    background-color: var(--secondary-color);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: -1;
+}
+
+.borderGlow {
+    background-color: #060;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: -2;
+    filter: blur(3.5rem);
+    opacity: 0.3;
+}
+
+.replayButton, .logsButton {
+    display: flex;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: var(--font-familly);
+    height: 80px;
+    width: 200px;
+    border: 1px solid #fff;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    animation: flashingText 1.6s infinite alternate;
+    position: relative;
+    overflow: visible;
+}
+
+.replayButton::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #0f0;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: moveReplayBorder 8s linear infinite;
+    z-index: 1;
+    box-shadow: 0 0 5px #0f0;
+}
+
+.replayButton::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #0f0;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: moveReplayBorder 8s linear infinite;
+    animation-delay: 0.15s;
+    z-index: 1;
+}
+
+.logsButton::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #0f0;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: moveLogsBorder 8s linear infinite;
+    z-index: 1;
+    box-shadow: 0 0 5px #0f0;
+}
+
+.logsButton::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #0f0;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: moveLogsBorder 8s linear infinite;
+    animation-delay: 0.15s;
+    z-index: 1;
+}
+
+@keyframes moveReplayBorder {
+    0% {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        top: 0;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    75% {
+        top: 100%;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes moveLogsBorder {
+    0% {
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        top: 100%;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    75% {
+        top: 0;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
 }
