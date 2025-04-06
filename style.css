@@ -8,6 +8,12 @@
     --accent-color: #;
 }
 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--primary-color);
     font-family: var(--font-familly);
