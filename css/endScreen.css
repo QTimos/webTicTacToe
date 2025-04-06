@@ -12,6 +12,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font: inherit;
 }
 
 body {
@@ -91,6 +92,7 @@ body {
 
 .logoButton {
     text-decoration: none;
+    transition: all 0.2s;
 }
 
 .logoButton:hover {
@@ -110,6 +112,7 @@ body {
 .navigationList a{
     text-decoration: none;
     color: #ffffff;
+    transition: all 0.2s;
 }
 
 .navigationList a:hover {
