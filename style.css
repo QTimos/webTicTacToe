@@ -5,7 +5,7 @@
     --background-color: #1e222a;
     --primary-color: #000;
     --secondary-color: #0f0f0f;
-    --accent-color: #;
+    --accent-color: #bbb;
 }
 
 * {
@@ -27,10 +27,13 @@ body {
     border-radius: 160px;
     position: relative;
     height: 100vh;
+    /* min-height: 100vh; */
     background: rgba(0, 255, 0, 0.05);
     box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
     filter: contrast(1.2) brightness(1.1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .screenSection::before {
@@ -184,6 +187,7 @@ body {
     color: #0f0;
     margin: 0;
     padding: 0;
+
 }
 
 .cursor {
@@ -191,6 +195,9 @@ body {
     height: 1.5em;
     background-color: #0f0;
     animation: cursor-blink 1s step-end infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
 }
 
 @keyframes cursor-blink {
@@ -205,11 +212,15 @@ body {
 }
 
 
-
 /* game section */
 .gameSection {
     background-color: var(--background-color);
-    height: 608px;
+    min-height: 608px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .gameContainer {
@@ -217,10 +228,11 @@ body {
     margin: auto;
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 .gameGrid {
-    margin-top: 150px;
+    /* margin-top: 150px; */
     display: grid;
     grid-template-columns: repeat(3,1fr);
     font-family: var(--font-familly);
@@ -236,6 +248,10 @@ body {
     border: 1px solid #fff;
     background-color: var(--background-color);
     font-size: 50px;
+}
+
+@keyframes flickingBorder {
+
 }
 
 .cellX p {
@@ -280,4 +296,333 @@ body {
 
 .cell:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* media queries */
+@media screen and (min-width: 1921px) {
+    .screenSection {
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+    
+    .asciiArtSection pre {
+        font-size: 0.8vw;
+    }
+    
+    .gameGrid {
+        margin-top: 5vh;
+    }
+    
+    .cell {
+        height: 120px;
+        width: 120px;
+        font-size: 65px;
+    }
+    
+    .gameSection {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1920px) {
+    .gameSection {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .screenSection {
+        border-radius: 80px;
+    }
+    
+    .asciiArtSection pre {
+        font-size: 0.9vw;
+        white-space: pre-wrap;
+        text-align: center;
+    }
+    
+    .titleText {
+        width: 80%;
+        gap: 20px;
+        font-size: 13px;
+    }
+    
+    .gameGrid {
+        margin-top: 80px;
+    }
+    
+    .cell {
+        height: 80px;
+        width: 80px;
+        font-size: 45px;
+    }
+    
+    .gameSection {
+        flex: 1;
+        min-height: 500px;
+    }
+    
+    .endScreenButtons {
+        width: 80%;
+        gap: 50px;
+    }
+    
+    .replayButton, .logsButton {
+        font-size: 30px;
+        height: 70px;
+        width: 180px;
+    }
+    
+    .endScreenTextBuffer {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .cursor {
+        height: 1.4em;
+    }
+    .screenSection {
+        border-radius: 50px;
+    }
+    
+    .asciiArtSection {
+        padding-top: 40px;
+    }
+    
+    .asciiArtSection pre {
+        font-size: 1.1vw;
+        display: none;
+    }
+    
+    .titleSection {
+        padding-top: 20px;
+    }
+    
+    .titleText {
+        width: 90%;
+        gap: 15px;
+        font-size: 12px;
+    }
+    
+    .currentPlayerContainer {
+        font-size: 40px;
+    }
+    
+    .gameSection {
+        flex: 1;
+        min-height: 400px;
+        padding-bottom: 40px;
+    }
+    
+    .gameGrid {
+        margin-top: 60px;
+    }
+    
+    .cell {
+        height: 70px;
+        width: 70px;
+        font-size: 40px;
+    }
+    
+    .asciiArtSection::after {
+        content: "TIC-TAC-TOE";
+        display: block;
+        color: #0f0;
+        font-size: 36px;
+        letter-spacing: 3px;
+        text-shadow: 0 0 5px #0f0;
+    }
+    
+    .endScreenTextBar {
+        height: 200px;
+    }
+    
+    .endScreenButtons {
+        width: 90%;
+        gap: 30px;
+    }
+    
+    .replayButton, .logsButton {
+        font-size: 24px;
+        height: 60px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cursor {
+        height: 1.3em;
+        width: 0.5em;
+    }
+    
+    .titleText {
+        line-height: 1.5;
+    }
+
+    .screenSection {
+        border-radius: 20px;
+    }
+    
+    .head {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 10px;
+    }
+    
+    .navigationList {
+        gap: 20px;
+    }
+    
+    .asciiArtSection {
+        padding-top: 20px;
+    }
+    
+    .titleSection {
+        padding-top: 20px;
+    }
+    
+    .titleText {
+        width: 95%;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 10px;
+    }
+    
+    .titlePrefix, .titleRandom {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .currentPlayerContainer {
+        font-size: 30px;
+    }
+    
+    .gameSection {
+        flex: 1;
+        min-height: 300px;
+        padding-bottom: 30px;
+    }
+    
+    .gameGrid {
+        margin-top: 30px;
+    }
+    
+    .cell {
+        height: 60px;
+        width: 60px;
+        font-size: 30px;
+    }
+    
+    .endScreenTextBar {
+        height: 150px;
+    }
+    
+    .endScreenTextBuffer {
+        font-size: 30px;
+    }
+    
+    .endScreenButtons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .replayButton, .logsButton {
+        font-size: 20px;
+        height: 50px;
+        width: 140px;
+    }
+    
+    @keyframes scanWobble {
+        0% { transform: translateY(-2px); }
+        100% { transform: translateY(2px); }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cursor {
+        height: 1.2em;
+        width: 0.4em;
+        margin-bottom: 2px;
+    }
+    
+    @keyframes cursor-blink {
+        0%, 100% {
+            background-color: #0f0;
+            box-shadow: 0 0 2px #0f0;
+        }
+        50% {
+            background-color: transparent;
+            box-shadow: 0 0 0 1px #0f0;
+        }
+    }
+
+    .screenSection {
+        border-radius: 10px;
+    }
+    
+    .logo {
+        max-width: 30px;
+    }
+    
+    .navigationList {
+        gap: 15px;
+        font-size: 14px;
+    }
+    
+    .cell {
+        height: 50px;
+        width: 50px;
+        font-size: 25px;
+    }
+    
+    .screenSection::before,
+    .screenSection::after {
+        animation-duration: 1s;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .asciiArtSection {
+        padding-top: 20px;
+    }
+    
+    .gameGrid {
+        margin-top: 40px;
+    }
+    
+    .gameSection {
+        min-height: 300px;
+    }
+    
+    .endScreenTextBar {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    .asciiArtSection {
+        display: none;
+    }
+    
+    .navigationList {
+        gap: 30px;
+    }
+    
+    .gameGrid {
+        margin-top: 20px;
+    }
+    
+    .gameSection {
+        min-height: 250px;
+        padding-bottom: 20px;
+    }
+    
+    .endScreenButtons {
+        flex-direction: row;
+        margin-top: 20px;
+    }
 }

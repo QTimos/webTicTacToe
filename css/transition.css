@@ -1,0 +1,146 @@
+:root {
+    --font-familly: "JetBrains Mono";
+    --background-color: #1e222a;
+    --primary-color: #000;
+    --secondary-color: #0f0f0f;
+    --accent-color: #bbb;
+}
+
+.transitionOverlay {
+    border-radius: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #101320;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.transitionOverlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
+}
+
+.transitionContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transitionContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.15) 0%,
+        rgba(0, 255, 0, 0.25) 1%,
+        rgba(0, 255, 0, 0.15) 2%
+    );
+    opacity: 0.2;
+    animation: scanFlicker 0.28s infinite alternate, scanWobble 1s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.transitionText {
+    color: #0f0;
+    font-family: var(--font-familly);
+    font-size: 28px;
+    height: 2em;
+    position: relative;
+}
+
+.transitionCursor {
+    width: 0.6em;
+    height: 1.5em;
+    background-color: #0f0;
+    display: inline-block;
+    margin-left: 0.2em;
+    vertical-align: middle;
+    margin-bottom: 4px;
+    animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% {
+        background-color: #0f0;
+        box-shadow: none;
+    }
+    50% {
+        background-color: transparent;
+        box-shadow: 0 0 0 1px #0f0;
+    }
+}
+
+.pageContent {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.pageContent.fadeOut {
+    opacity: 0;
+}
+
+a[data-transition="true"] {
+    transition: opacity 0.2s;
+}
+
+/* media queries */
+@media screen and (min-width: 1921px) {
+    .transitionOverlay {
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .transitionOverlay {
+        border-radius: 80px;
+    }
+    .transitionText {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .transitionOverlay {
+        border-radius: 50px;
+    }
+    .transitionText {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .transitionOverlay {
+        border-radius: 20px;
+    }
+    .transitionText {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .transitionOverlay {
+        border-radius: 10px;
+    }
+    .transitionText {
+        font-size: 14px;
+    }
+}
