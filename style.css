@@ -134,7 +134,7 @@ body {
     color: #fff;
 }
 .asciiArtSection pre {
-    color: #0f0;
+    color: #0d0;
 }
 
 
@@ -382,7 +382,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1070px) {
     .cursor {
         height: 1.4em;
     }
