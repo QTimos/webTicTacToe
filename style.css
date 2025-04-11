@@ -131,6 +131,9 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
+    color: #fff;
+}
+.asciiArtSection pre {
     color: #0f0;
 }
 
