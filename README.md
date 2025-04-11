@@ -3,7 +3,7 @@
     <img src="./assets/iconProject.png" alt="Tic-Tac-Toe" width="65">
 </div>
 
-## -
+## 
 <h1>
     Tic-Tac-Toe made for the web using HTML, CSS and JavaScript.
 </h1>
