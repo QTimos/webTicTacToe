@@ -1,4 +1,8 @@
 # webTicTacToe
-Tic-Tac-Toe made for the web using HTML, CSS and JavaScript. Part of my Cerberus coding challenge. 
+<div align="center">
+  <img src="./assets/iconProject.png" alt="Tic-Tac-Toe" width="65">
+</div>
+Tic-Tac-Toe made for the web using HTML, CSS and JavaScript.
 
-https://qtimos.github.io/webTicTacToe/
+# Click The Link
+   * https://qtimos.github.io/webTicTacToe/
